@@ -1,0 +1,82 @@
+
+Make VST plugins appear as LADSPA Plugins.
+
+
+
+vst ladspa plugin v0.1.6 - stable
+----------------------------------
+-Use the new vstlibs functions to gather
+ the cached AEffect structs. (non-important update)
+
+
+vst ladspa plugin v0.1.5 - stable
+----------------------------------
+-Fixed the worst nonrealtimeness for the default mode.
+ When using realtime priority on the vstserver, it
+ should not be necesarry to define LADSPAVST_RT.
+
+
+
+vst ladspa plugin v0.1.4 - stable
+----------------------------------
+-Fixed a memory leak.
+-Use a mutex instead of stopping and starting parameterthread.
+-Do not enable RT safe mode unless LADSPAVST_RT is exactly "1".
+
+
+vst ladspa plugin v0.1.3 - stable
+----------------------------------
+-Hard RT safe mode. Enabled by setting the
+ "LADSPAVST_RT" environment variable to 1. Works quite
+ well. While typing this I'm at the same time running ardour
+ with a period of 128 processing five vst plugins. It may lower
+ the soundquality (clicks, silence and loops) though, so LADSPAVST_RT
+ should not be set by default. But realtime programs like Ardour
+ won't work very well without it. It also introduce a latency
+ on one period size for the processed data.
+-Stop parameterthread temporarily when
+ accessing vst sockets from other threads.
+-Set parameter directly after connecting
+ a port.
+-Removed the run_adding code. It did not
+ behave correctly.
+-Added a note to the lisense.
+
+
+vst ladspa plugin v0.1.2 - stable
+---------------------------------
+-Moved cache code to server and library.
+
+
+
+vst ladspa plugin v0.1.1 - stable
+---------------------------------
+-Caches plugin data. Speed up.
+
+
+vst ladspa plugin v0.1.0 - stable
+---------------------------------
+-Added default hints.
+-Added gui on off control input port for all plug-ins ("Gui_on_off")
+-Put parameter setting stuff in its own thread.
+-Added run_adding and set_run_adding_gain functions.
+
+Seems to work fine now.
+
+
+
+vst ladspa plugin v0.0.1 - alpha
+---------------------------------
+
+Makes vst plugins located in $VST_PATH
+appear as ladspa plugins.
+
+I'm not sure how well this one actually works.
+The northpole plugin seems to work, but others
+dont. Oh well, its alpha for now.
+
+
+------------------------------------------------------
+Last updated 28.9.2003, Kjetil S. Matheussen / Notam.
+
+

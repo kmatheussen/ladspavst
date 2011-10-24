@@ -1,0 +1,16 @@
+#N canvas 408 274 450 300 10;
+#X obj 115 187 plugin~ vst_NorthPole0.91b.dll;
+#X obj 237 134 adc~;
+#X obj 238 235 dac~;
+#X msg 84 115 print;
+#X msg 145 111 control Gui_on_off \$1;
+#X msg 143 71 0;
+#X msg 183 70 1;
+#X connect 0 1 2 0;
+#X connect 0 2 2 1;
+#X connect 1 0 0 1;
+#X connect 1 1 0 2;
+#X connect 3 0 0 0;
+#X connect 4 0 0 0;
+#X connect 5 0 4 0;
+#X connect 6 0 4 0;
